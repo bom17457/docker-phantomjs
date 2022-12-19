@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM node:19.3.0-buster-slim
 
 ARG PHANTOM_JS_VERSION
 ARG DUMB_INIT_VERSION
@@ -46,7 +46,8 @@ USER phantomjs
 EXPOSE 8910
 
 ENTRYPOINT ["dumb-init"]
-CMD ["phantomjs"]
+
+RUN npm i -g html-pdf
 
 # NOTE: The healthcheck only makes sense if it's started with --webdriver=8910
 #HEALTHCHECK --interval=5s --timeout=2s --retries=20 \
