@@ -47,6 +47,8 @@ EXPOSE 8910
 
 ENTRYPOINT ["dumb-init"]
 
+USER root
+
 RUN npm i -g html-pdf
 
 # NOTE: The healthcheck only makes sense if it's started with --webdriver=8910
